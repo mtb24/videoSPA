@@ -55,7 +55,7 @@ class ClapprPlayer extends React.Component {
             parent: this.refs.player,
             source: source,
             poster: '/images/world_2093x2094.png', //hardcoded image
-            autoPlay: false,
+            autoPlay: true,
             width: '95vw',
             hlsjsConfig: {
                 enableWorker: true
