@@ -9,11 +9,11 @@ import ClapprPlayer from './clapper-player';
 const styles = theme => ({
     root: {
         display: 'grid',
-        gridTemplateColumns: '25% 1fr',
-        gridTemplateAreas: '"list player"', // quoting hack
+        gridTemplateColumns: '1fr 25%',
+        gridTemplateAreas: '"player list"', // quoting hack
         [ theme.breakpoints.down('sm') ]: {
             gridTemplateColumns: '100%',
-            gridTemplateRows: 'auto 1fr',
+            gridTemplateRows: '1fr auto',
             gridTemplateAreas: '"player""list"', // quoting hack
             width: '95%',
         },
@@ -29,7 +29,6 @@ const styles = theme => ({
     player: {
         gridArea: 'player',
         width: '50vw',
-        //height: '50vh',
         [ theme.breakpoints.down('sm') ]: {},
     },
 });

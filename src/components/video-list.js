@@ -7,7 +7,7 @@ import VideoItem from './video-item';
 
 const styles = theme => ({
     root: {
-        marginRight: theme.spacing.unit * 2,
+        marginLeft: theme.spacing.unit * 2,
         marginTop: '0px',
         paddingTop: '0px',
     },
