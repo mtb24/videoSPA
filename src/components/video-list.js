@@ -10,6 +10,10 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit * 2,
         marginTop: '0px',
         paddingTop: '0px',
+        [ theme.breakpoints.down('sm') ]: {
+            margin: '1vh auto',
+            width: '100%',
+        },
     },
 });
 

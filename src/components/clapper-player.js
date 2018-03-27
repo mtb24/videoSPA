@@ -6,10 +6,9 @@ import Clappr from 'clappr';
 
 const styles = theme => ({
     player: {
-        width: '50vw',
-        [ theme.breakpoints.down('sm') ]: {
-            width: '95vw',
-        }
+        width: 'inherit',
+        height: 'inherit',
+        [ theme.breakpoints.down('sm') ]: {}
     },
 });
 
@@ -50,13 +49,14 @@ class ClapprPlayer extends React.Component {
         }
         
         //Clappr.Log.setLevel(0);
-        
+
         this.player = new Clappr.Player({
             parent: this.refs.player,
             source: source,
             poster: '/images/world_2093x2094.png', //hardcoded image
-            autoPlay: true,
-            width: '95vw',
+            autoPlay: false,
+            width: this.refs.player.getBoundingClientRect().width + 'px',
+            height: this.refs.player.getBoundingClientRect().height + 'px',
             hlsjsConfig: {
                 enableWorker: true
             }
@@ -64,9 +64,10 @@ class ClapprPlayer extends React.Component {
     }
 
     render() {
+
         const { classes } = this.props;
         return (
-            <div className={ classes.player } ref="player"></div>
+            <div id='clapprplayer' className={ classes.player } ref="player"></div>
         );
     }
 };

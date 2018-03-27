@@ -9,11 +9,11 @@ import ClapprPlayer from './clapper-player';
 const styles = theme => ({
     root: {
         display: 'grid',
-        gridTemplateColumns: '1fr 25%',
+        gridTemplateColumns: '40vw 200px',
         gridTemplateAreas: '"player list"', // quoting hack
         [ theme.breakpoints.down('sm') ]: {
             gridTemplateColumns: '100%',
-            gridTemplateRows: '1fr auto',
+            gridTemplateRows: '60vh auto',
             gridTemplateAreas: '"player""list"', // quoting hack
             width: '95%',
         },
@@ -22,15 +22,21 @@ const styles = theme => ({
         gridArea: 'list',
         marginRight: theme.spacing.unit * 2,
         backgroundColor: 'inherit',
-        [ theme.breakpoints.down('sm') ]: {
-            margin: '0 auto',
-        },
     },
     player: {
         gridArea: 'player',
-        width: '50vw',
-        [ theme.breakpoints.down('sm') ]: {},
+        width: '40vw',
+        height: '22.5vw',
+        [ theme.breakpoints.down('sm') ]: {
+            margin: '0 auto',
+            width: '100%',
+            height: '100%',
+        },
     },
+    clappr: {
+        width: 'inherit',
+        height: 'inherit'
+    }
 });
 
 class Player extends React.Component {
@@ -55,6 +61,15 @@ class Player extends React.Component {
           this.setState({ currentVideoIndex: videoId-1 });
         }
     }
+
+    handleResize() {
+        const video = document.querySelector('#clapprplayer > div');
+        const fluidEl = document.querySelector('#video');
+        const elBox = fluidEl.getBoundingClientRect();
+        video.dataset.aspectRatio = elBox.height / elBox.width;
+        video.style['width'] = elBox.width + 'px';
+        video.style['height'] = elBox.width * video.dataset.aspectRatio + 'px';
+    }
     
     componentWillReceiveProps(nextProps) {
         console.log('recieveing props...', nextProps);
@@ -62,15 +77,16 @@ class Player extends React.Component {
     }
 
     render() {
-        //console.log('players location ', this.props.location.pathname)
+
         const { classes } = this.props;
         const currentVideo = this.state.videos[ this.state.currentVideoIndex ].src;
+        window.onresize = this.handleResize;
 
         return (
             <div className={ classes.root }>
                 <VideoList className={ classes.list } videos={ this.state.videos } />
-                <Card className={ classes.player }>
-                    <ClapprPlayer source={ currentVideo } />
+                <Card id='video' className={ classes.player }>
+                    <ClapprPlayer className={ classes.clappr } source={ currentVideo } />
                 </Card>
             </div>
         );
@@ -82,4 +98,3 @@ Player.propTypes = {
 };
 
 export default withRoot(withStyles(styles)(Player));
-  

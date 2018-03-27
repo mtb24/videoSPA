@@ -5,11 +5,12 @@ import { withStyles } from 'material-ui/styles';
 import withRoot from '../withRoot';
 import Player from './player';
 
-
+const viewWidth = document.querySelector('body').getBoundingClientRect().width
 const styles = theme => ({
   root: {
     display: 'grid',
     gridTemplateColumns: '100%',
+    gridTemplateRows: viewWidth * 0.43 + 'px',
     justifyItems: 'center',
     paddingTop: theme.spacing.unit * 10,
     [ theme.breakpoints.down('sm') ]: {
