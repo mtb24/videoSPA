@@ -44,11 +44,11 @@ class Player extends React.Component {
         super(props);
         this.state = {
             videos: [
-                {id: 1, title: "Video 1", src: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8", imgsrc: '/images/avatar1.png'},
-                {id: 2, title: "Video 2", src: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", imgsrc: '/images/avatar2.png'},
-                {id: 3, title: "Video 3", src: "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8", imgsrc: '/images/avatar3.png'},
-                {id: 4, title: "Video 4", src: "http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8", imgsrc: '/images/avatar4.png'},
-                {id: 5, title: "Video 5", src: "http://www.streambox.fr/playlists/test_001/stream.m3u8", imgsrc: '/images/avatar5.png'}
+                {id: 1, title: "Video 1", src: "https://bitdash-a.akamaihd.net/content/MI201109210084_1/m3u8s/f08e80da-bf1d-4e3d-8899-f0f6155f6efa.m3u8", imgsrc: '/images/thumb1.png'},
+                {id: 2, title: "Video 2", src: "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8", imgsrc: '/images/thumb2.png'},
+                {id: 3, title: "Video 3", src: "https://mnmedias.api.telequebec.tv/m3u8/29880.m3u8", imgsrc: '/images/thumb3.png'},
+                {id: 4, title: "Video 4", src: "http://184.72.239.149/vod/smil:BigBuckBunny.smil/playlist.m3u8", imgsrc: '/images/thumb4.png'},
+                {id: 5, title: "Video 5", src: "http://www.streambox.fr/playlists/test_001/stream.m3u8", imgsrc: '/images/thumb5.png'}
             ],
             currentVideoIndex: 0
         };
