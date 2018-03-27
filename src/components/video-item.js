@@ -9,7 +9,8 @@ const styles = theme => ({
     root: {
         width: '100%',
         margin: '.5vh auto',
-        backgroundColor: theme.palette.primary.light,
+        // backgroundColor: theme.palette.primary.light,
+        border: '1px solid lightgrey',
         [ theme.breakpoints.down('sm') ]: {},
     },
     anchor: {
@@ -36,7 +37,7 @@ function VideoItem(props) {
         backgroundPosition: 'left',
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
-        borderRadius: '25px',
+        borderRadius: '3px',
     }
 
     return (            
